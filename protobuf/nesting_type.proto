@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message MessageThree {
+    message MessageFour {
+
+    }
+
+    enum EnumTow {
+        ENUM_TOW_UNSPECIFIED = 0;
+        ENUM_TOW_ONE = 1;
+        ENUM_TOW_TWO = 2;
+    }
+
+    MessageFour four = 1;
+    EnumTow enum_tow = 2;
+}

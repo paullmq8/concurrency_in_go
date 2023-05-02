@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
-	"sync"
+    "fmt"
+    "sync"
 )
 
 var wg sync.WaitGroup
@@ -15,12 +15,12 @@ func main() {
     wg.Add(1)
     go func() {
         defer wg.Done()
-        pl("hello")
+        pl("1", "hello")
     }()
 
-    sayHello := func(){
+    sayHello := func() {
         wg.Done()
-        pl("hello")
+        pl("2", "hello")
     }
     wg.Add(1)
     go sayHello()
@@ -29,15 +29,17 @@ func main() {
     wg.Add(1)
     go func() {
         defer wg.Done()
-        pl(salutation)
+        pl("3", salutation)
         salutation = "welcome"
     }()
     wg.Wait()
-    
-    pl(salutation)
+
+    // It turns out that goroutines execute within the same address space they were created in,
+    // and so our program prints out the word “welcome.”
+    pl("4", salutation)
 }
 
 func sayHello() {
     defer wg.Done()
-    fmt.Println("hello")
+    fmt.Println("5", "hello")
 }

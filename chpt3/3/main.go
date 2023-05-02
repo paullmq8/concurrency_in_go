@@ -17,7 +17,12 @@ func main() {
 
 	var c <-chan interface{}
 	var wg sync.WaitGroup
-	noop := func() { wg.Done(); <-c }
+	noop := func() { // this goroutine will never exit.
+		wg.Done()
+		//var i float64 = 1
+		//println(i)
+		<-c
+	}
 
 	const numGoroutines = 1e4
 	wg.Add(numGoroutines)

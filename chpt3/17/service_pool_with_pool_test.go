@@ -1,4 +1,4 @@
-package main
+package _17
 
 import (
 	"io/ioutil"
@@ -11,6 +11,7 @@ func init() {
 	daemonStarted.Wait()
 }
 
+// go test -benchtime=10s -bench=.
 func BenchmarkNetworkRequest(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		conn, err := net.Dial("tcp", "localhost:8080")

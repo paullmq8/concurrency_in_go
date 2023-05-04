@@ -1,4 +1,4 @@
-package main
+package _16
 
 import (
 	"fmt"
@@ -38,8 +38,4 @@ func startNetworkDaemon() *sync.WaitGroup {
 	}()
 
 	return &wg
-}
-
-func main() {
-
 }

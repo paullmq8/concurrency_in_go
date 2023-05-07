@@ -40,7 +40,7 @@ func main() {
 		context.Background()
 	})
 
-	/*subscribe(button.Clicked, "mouse", func() {
+	subscribe(button.Clicked, "mouse", func() {
 		fmt.Println("Mouse clicked.")
 		clickRegistered.Done()
 	})
@@ -48,10 +48,10 @@ func main() {
 	subscribe(button.Clicked, "display", func() {
 		fmt.Println("Displaying annoying dialogue box!")
 		clickRegistered.Done()
-	})*/
+	})
 
 	button.Clicked.Broadcast()
 	fmt.Println("after broadcast")
-	clickRegistered.Wait()
+	//clickRegistered.Wait()
 	fmt.Println("after wait")
 }

@@ -90,7 +90,7 @@ func BenchmarkTyped(b *testing.B) {
 		return takeStream
 	}
 
-	done := make(chan interface{})
+	done := make(chan any)
 	defer close(done)
 
 	b.ResetTimer()

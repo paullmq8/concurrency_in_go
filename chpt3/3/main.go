@@ -15,7 +15,7 @@ func main() {
 		return s.Sys
 	}
 
-	var c <-chan interface{}
+	var c <-chan any
 	var wg sync.WaitGroup
 	noop := func() { // this goroutine will never exit.
 		wg.Done()

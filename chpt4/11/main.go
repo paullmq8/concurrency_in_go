@@ -41,7 +41,7 @@ func main() {
 	}
 
 	/*
-		done := make(chan interface{})
+		done := make(chan any)
 		defer close(done)
 
 		errCount := 0

@@ -9,7 +9,7 @@ import (
 // If a goroutine is responsible for creating a goroutine, it is also responsible for ensuring it can stop the goroutine.
 // How we ensure goroutines are able to be stopped can differ depending on the type and purpose of goroutine, but they all build on the foundation of passing in a done channel.
 func main() {
-	newRandStream := func(done <-chan interface{}) <-chan int {
+	newRandStream := func(done <-chan any) <-chan int {
 		randStream := make(chan int)
 		go func() {
 			defer fmt.Println("newRandStream closure exited.")
@@ -25,7 +25,7 @@ func main() {
 		return randStream
 	}
 
-	done := make(chan interface{})
+	done := make(chan any)
 	randStream := newRandStream(done)
 	fmt.Println("3 random ints:")
 	for i := 0; i < 3; i++ {

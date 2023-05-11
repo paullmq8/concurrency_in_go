@@ -7,10 +7,10 @@ import (
 
 func main() {
 	doWork := func(
-		done <-chan interface{},
+		done <-chan any,
 		strings <-chan string,
-	) <-chan interface{} {
-		terminated := make(chan interface{})
+	) <-chan any {
+		terminated := make(chan any)
 		go func() {
 			defer fmt.Println("doWork exited.")
 			defer close(terminated)
@@ -27,7 +27,7 @@ func main() {
 		return terminated
 	}
 
-	done := make(chan interface{})
+	done := make(chan any)
 	terminated := doWork(done, nil)
 
 	go func() {

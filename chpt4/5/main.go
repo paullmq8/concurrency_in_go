@@ -4,8 +4,8 @@ import "fmt"
 
 // consumer goroutine leak example
 func main() {
-	doWork := func(strings <-chan string) <-chan interface{} {
-		completed := make(chan interface{})
+	doWork := func(strings <-chan string) <-chan any {
+		completed := make(chan any)
 		go func() {
 			defer fmt.Println("doWork exited.")
 			defer close(completed)

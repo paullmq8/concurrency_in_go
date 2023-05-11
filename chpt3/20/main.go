@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	var c1, c2 <-chan interface{}
-	var c3 chan<- interface{}
+	var c1, c2 <-chan any
+	var c3 chan<- any
 	fmt.Println(c1, c2, c3)
 	select {
 	case <-c1:

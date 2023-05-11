@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func connectToService() interface{} {
+func connectToService() any {
 	time.Sleep(1 * time.Second)
 	return struct{}{}
 }

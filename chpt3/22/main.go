@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	c1 := make(chan interface{})
+	c1 := make(chan any)
 	close(c1)
-	c2 := make(chan interface{})
+	c2 := make(chan any)
 	close(c2)
 
 	var c1Count, c2Count int

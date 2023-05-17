@@ -25,7 +25,7 @@ func tryPool() {
 	calcPool.Put(calcPool.New())
 	calcPool.Put(calcPool.New())
 
-	ch := make(chan bool)
+	//ch := make(chan bool)
 
 	const numWorkers = 1024 * 1024
 	var wg sync.WaitGroup
@@ -33,13 +33,14 @@ func tryPool() {
 	for i := numWorkers; i > 0; i-- {
 		go func() {
 			defer wg.Done()
-			<-ch
+			//<-ch
 			mem := calcPool.Get().(*[]byte)
-			defer calcPool.Put(mem)
+			println(mem)
+			//defer calcPool.Put(mem)
 			// Assume something interesting, but quick is being done with this memory.
 		}()
 	}
-	ch <- true
+	//ch <- true
 	wg.Wait()
 	fmt.Printf("%d calculators were created.", numCalcsCreated)
 }

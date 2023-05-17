@@ -29,7 +29,7 @@ func startNetworkDaemon() *sync.WaitGroup {
 	go func() {
 		connPool := warmServiceConnCache()
 
-		server, err := net.Listen("tcp", "localhost:8080")
+		server, err := net.Listen("tcp", "localhost:8888")
 		if err != nil {
 			log.Fatalf("cannot listen: %v", err)
 		}

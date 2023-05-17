@@ -14,7 +14,7 @@ func init() {
 // go test -benchtime=10s -bench=.
 func BenchmarkNetworkRequest(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		conn, err := net.Dial("tcp", "localhost:8080")
+		conn, err := net.Dial("tcp", "localhost:8888")
 		if err != nil {
 			b.Fatalf("cannot dial host: %v", err)
 		}
